@@ -30,3 +30,7 @@ firstname a
 lastname a
 email a@a.a
 $2y$10$5x13Z98VKsLpkGeCV8Duxe3Xgn/YzgPXE5leAqesHNDElRnznxJxG
+firstname p
+lastname p
+email p@p.p
+$2y$10$XLAnXukJT0Hrj6RM4n.aVuZcozv5VALSM/m0nUJ0a3H4.9MYRQs6K

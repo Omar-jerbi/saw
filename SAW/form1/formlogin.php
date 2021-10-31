@@ -14,6 +14,21 @@
         <h4>Log into the largest digital library in the world!</h4>
     </div>
 
+
+    <?php
+    session_start();
+        if(!isset($_SESSION["login"]) and isset($_SESSION["tried"])){
+            echo "<h1 style = \"text-align: center;\">You need to login first before you can access to private data </h1>";
+        }
+
+        if(isset($_SESSION["login"])){
+            echo"
+            <h1 style = \"text-align: center;\">Sei gia loggato, la tua {$_SESSION["mail"]}</h1>
+            ";
+            exit;
+        }
+    ?>
+
     <form action="login.php" method="POST">
         <fieldset class="IN">
             <legend style="color: white;">Login</legend>

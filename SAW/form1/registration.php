@@ -6,9 +6,6 @@
 <body>
     <?php
 
-    //echo(sha1(md5($_POST["pass"])));
-    //exit;
-
         if($_POST["firstname"] == "" || $_POST["lastname"] == "" ||$_POST["email"] == ""||$_POST["pass"] == ""||$_POST["confirm"] == ""){
             echo "
             <h1>
