@@ -39,28 +39,30 @@
                 include("errorscript.php");
                 exit;
             }
-
-            if(!preg_match("/[a-zA-Z]{6}\d{2}[a-zA-Z]\d{2}[a-zA-Z]\d{3}[a-zA-Z]/", $_POST["fc"])){
-                echo"
-                <h1>
-                ERRORE FORMATO CODICE FISCALE
-                </h1>
-                ";
-                echo "<a href=\"formregistration.php\">RIPROVA</a>";
-                include("errorscript.php");
-                exit;                               
-            }
-
-            if(!preg_match("/[a-z]{2}\d{5}[a-z]{2}/i", $_POST["icn"])){
-                echo"
-                <h1>
-                ERRORE FORMATO CARTA D'IDENTITà
-                </h1>
-                ";
-                echo "<a href=\"formregistration.php\">RIPROVA</a>";
-                include("errorscript.php");
-                exit;                               
-            }
+            
+            if($_POST["fc"] != "")
+                if(!preg_match("/[a-zA-Z]{6}\d{2}[a-zA-Z]\d{2}[a-zA-Z]\d{3}[a-zA-Z]/", $_POST["fc"])){
+                    echo"
+                    <h1>
+                    ERRORE FORMATO CODICE FISCALE
+                    </h1>
+                    ";
+                    echo "<a href=\"formregistration.php\">RIPROVA</a>";
+                    include("errorscript.php");
+                    exit;                               
+                }
+            
+            if($_POST["icn"] != "")
+                if(!preg_match("/[a-z]{2}\d{5}[a-z]{2}/i", $_POST["icn"])){
+                    echo"
+                    <h1>
+                    ERRORE FORMATO CARTA D'IDENTITà
+                    </h1>
+                    ";
+                    echo "<a href=\"formregistration.php\">RIPROVA</a>";
+                    include("errorscript.php");
+                    exit;                               
+                }
 
             $file = "users.txt";
             

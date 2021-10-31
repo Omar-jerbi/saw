@@ -1,33 +1,44 @@
 <?php
-    $mail = "email ".$_POST["email"]."\n";
-    $password = $_POST["pass"];
+    session_start();
 
-    
-    $file = "users.txt";
-    $handle = fopen($file, 'r');
-    
+    if(isset($_SESSION["login"])){
+        echo "<h1>
+            SEI GIA LOGGATO COGLIONE
+        </h1>";
+    }else{
+        $mail = "email ".$_POST["email"]."\n";
+        $password = $_POST["pass"];
 
-    if ($handle) {
-        while (($line = fgets($handle)) !== false) {
+        
+        $file = "users.txt";
+        $handle = fopen($file, 'r');
+        
 
-            if($line == $mail){
-                $line = fgets($handle);
-                
-                //$line = substr($line, 0, -1); //toglie ultimo carattere, per qualche motivo qualcosa aggiunge " " alla fine
+        if ($handle) {
+            while (($line = fgets($handle)) !== false) {
 
-                if(password_verify($password, $line)){
-                    echo"
-                        <h1>BENVENUTO</h1>
-                    ";
-                    exit;
+                if($line == $mail){
+                    $line = fgets($handle);
+                    
+                    //$line = substr($line, 0, -1); //toglie ultimo carattere, per qualche motivo qualcosa aggiunge " " alla fine
+
+                    if(password_verify($password, $line)){
+
+                        $_SESSION["login"] = true;
+                        echo"
+                            <h1>BENVENUTO</h1>
+                        ";
+                        exit;
+                    }
                 }
             }
+
+            echo "<h1>UTENTE NON REGISTRATO O PASSWORD NON VALIDA</h1>";
+            echo "<a href=\"formlogin.php\">RIPROVA</a>";
+
+            include("errorscript.php");
+            fclose($handle);
         }
 
-        echo "<h1>UTENTE NON REGISTRATO O PASSWORD NON VALIDA</h1>";
-        echo "<a href=\"formlogin.php\">RIPROVA</a>";
-
-        include("errorscript.php");
-        fclose($handle);
-    }
+}
 ?>

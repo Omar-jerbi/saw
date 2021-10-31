@@ -1,5 +1,4 @@
 <?php
     session_start();
-    echo session_name()."<br>";
-    echo session_id();
+    echo session_name() . ": " . session_id();
 ?>
