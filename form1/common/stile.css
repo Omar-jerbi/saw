@@ -2,14 +2,27 @@
 
 
 html{
-    /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
     font-family: 'Minecraft', sans-serif;
 }
 
+
+.main_content{
+    padding-bottom: 6rem;
+}
+
 body{
-    background-color: #eeee;
     color: rgb(64, 143, 235);
-    margin-top: 0px;
+    margin: 0px;
+    background-color:#c37070;
+    
+    position: relative;
+    min-height: 100vh;
+
+    background-image: url("../img/Book_PNG2116.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+ 
+    background-position-x: center;
 }
 
 form{
@@ -35,12 +48,14 @@ form{
 
 .title > *{
     text-align: center;
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 600px) {
     .title > h1{
         font-size:larger;
         text-align: start;
+        margin-top: 20px;
     }    
     
     .title > h4{
