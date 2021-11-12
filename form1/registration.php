@@ -51,7 +51,7 @@ h1{
             $f = mysqli_real_escape_string($connection, strtolower(trim($_POST["firstname"])));
             $l = mysqli_real_escape_string($connection, strtolower(trim($_POST["lastname"])));
             $m = mysqli_real_escape_string($connection ,strtolower(trim($_POST["email"])));
-            $pw = password_hash($_POST["pass"], PASSWORD_DEFAULT);
+            $pw = sha1(trim($_POST["pass"]));
 
             $sql = "INSERT INTO utenti (firstname, lastname, email, pass)
               VALUES ('$f', '$l', '$m', '$pw')";

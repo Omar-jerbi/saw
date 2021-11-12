@@ -16,7 +16,7 @@
 
     <?php
     $mail = trim(strtolower($_POST["email"]));
-    $password = $_POST["pass"];
+    $password = trim($_POST["pass"]);
 
     include("common/db/db_connect.php");
 
@@ -39,21 +39,18 @@
     }
     
     
-   $fetchedPw = mysqli_fetch_assoc($res)["pass"];
+
+   $fetchedHashPw = mysqli_fetch_array($res)['pass']; //problem
+
+echo $fetchedHashPw."<br>";
+echo sha1($password);
+// $fetchedHashPw = password_hash($password, PASSWORD_DEFAULT);
 
 
+    if(sha1($password) == $fetchedHashPw){
+        echo "QUI";
+        exit;
 
-//    echo $password;
-//    echo $fetchedPw;
-//    echo password_verify($password, $fetchedPw);
-//    exit;
-
-
-//BOH  password_verify non collabora
-
-
-
-    if(password_verify($password, $fetchedPw)){
         session_start();
         $_SESSION["login"] = true;
         $_SESSION["email"] = $mail;
