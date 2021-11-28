@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<body>
+    <form action="" method="post">
+        <div class="mail">
+            <h1>mail</h1>
+            <input type="text" id="email" onclick="checkmail()">
+            <label id="failedmail"> Insersici la mail</label>
+        </div>
+
+        <div class="pass">
+            <h1>password</h1>
+            <input type="password" id="password">
+            <label id="failpassword"> Insersici la password</label>
+        </div>
+    </form>
+</body>
+    
+    <script>
+        var pass = document.getElementById("password").value;
+        
+        function checkmail() {
+            var email = document.getElementById("email").value;
+            
+            if(email.length < 5){
+                document.getElementById("failedmail").innerText = "mail corta";
+            } 
+        }
+
+    </script>
+
+</html>
